@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  header.full_window 
+    #login
+      div(v-if="status === 'login'")
+        include Components/index/login.pug
+      div(v-if="status === 'register'")
+        include Components/index/register.pug
+      .input_fild
+        button(v-on:click="user_login") {{status  === 'login' ? 'Entrar' : 'Registrar'}}
+        button(v-on:click="change_status") {{status  === 'login' ? 'Registrarse' : 'Regresar'}}
+  script(src="/javascripts/login.js") 
+    
